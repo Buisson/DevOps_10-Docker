@@ -1,0 +1,22 @@
+version: "2"
+
+services:
+
+  dotnet:
+    image: buissonmagique/dotnet
+
+    ports:
+      - "9090:9090"
+    network_mode: "host"
+
+  
+  backend:
+    image: buissonmagique/backend
+
+    ports:
+      - "8080:8080"
+    network_mode: "host"
+
+    volumes_from:
+       - container:bddJ2E
+
