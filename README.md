@@ -6,7 +6,7 @@ Image dotnet :
 -----
 ####Etape 1 
 il faut soit :
- + construire l’image a partir du fichier docker présent à la racine du projet.
+ + construire l’image à partir du fichier docker présent à la racine du projet.
 
     ```
     sudo docker build -t buissonmagique/dotnet . //ne pas oublier le point
@@ -17,17 +17,18 @@ il faut soit :
     sudo docker pull buissonmagique/dotnet  
     ```
 ####Etape 2 
-une fois l’image en votre possession il ne vous reste plus qu’a la lancer dans un conteneur docker :
-
+une fois l’image en votre possession il ne vous reste plus qu’à la lancer dans un conteneur docker :
+   ```
     sudo docker run -it --net=host buissonmagique/dotnet
+    ```
 ##### Les options :
 + -i , afin que le dotnet soit lancé en mode interactif
-+ --net=host, permet au conteneur de définir sur qu’elle réseau il se trouve afin de pouvoir communiqué avec les autres éléments présents.
++ --net=host, permet au conteneur de définir sur qu’elle réseau il se trouve afin de pouvoir communiquer avec les autres éléments présents.
 
 Image backend :
 -----
 
-Il s’agit ici de répéter les étapes précédentes en utilisant le dockerfile qui se trouve dans le dossier j2e afin de crée l’image ou l’image deja construite qui se trouve sur le hub docker 
+Il s’agit ici de répéter les étapes précédentes en utilisant le dockerfile qui se trouve dans le dossier j2e afin de crée l’image ou l’image déjà construite qui se trouve sur le hub docker 
 
 
     sudo docker build -t buissonmagique/backend .
@@ -36,13 +37,13 @@ Il s’agit ici de répéter les étapes précédentes en utilisant le dockerfil
 
     sudo docker pull buissonmagique/backend
 
-Il ne vous reste ensuite plus qu'a run
+Ensuite il ne vous reste plus qu'à run
 
     sudo docker run -it --net=host buissonmagique/backend
 
 BDD :
 -----
-+ On creer le volume 
++ On créer le volume 
     
     ```
     sudo docker create -v /bdd --name bddJ2E buissonmagique/backend /bin/true
